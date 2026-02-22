@@ -6,7 +6,7 @@ const Navbar = () => {
     const notActiveClass = 'text-white px-4 py-2 hover:text-gray-400 transition-all duration-300'
 
     return (
-        <div className='flex justify-center gap-x-10 text-lg mb-5 items-center' >
+        <div className='flex flex-wrap justify-center gap-x-10 text-lg mb-5 items-center' >
             <NavLink to='/' className={({ isActive }) => isActive ? activeClass : notActiveClass}>Home</NavLink>
             <NavLink to='/recipes' className={({ isActive }) => isActive ? activeClass : notActiveClass}>Recipes</NavLink>
             <NavLink to='/about' className={({ isActive }) => isActive ? activeClass : notActiveClass}>About</NavLink>

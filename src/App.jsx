@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div className='py-5 px-[10%] bg-gray-800 w-screen h-screen font-thin text-white' >
+    <div className='py-5 px-[10%] bg-gray-800 min-h-screen font-thin text-white' >
       <Navbar />
       <MainRoutes />
     </div>
