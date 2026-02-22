@@ -1,14 +1,36 @@
 import { nanoid } from 'nanoid';
 import { useForm } from 'react-hook-form'
+import { useRecipes } from '../context/RecipeContext';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CreateRecipe = () => {
 
-  const { register, handleSubmit } = useForm();
+  const { data, setData } = useRecipes()
+  const { register, handleSubmit, reset } = useForm();
 
-  const SubmitHandler = (data) => {
-    data.id = nanoid();
-    console.log(data);
+  const navigate = useNavigate();
 
+  const SubmitHandler = (recipe) => {
+
+    if (!recipe.image || !recipe.title || !recipe.chef || !recipe.description || !recipe.ingredients || !recipe.instructions) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+    if (!recipe.category) {
+      toast.error('Please select a category');
+      return;
+    }
+
+    recipe.id = nanoid();
+
+    setData(prevData => [...prevData, recipe]);
+
+    toast.success('Recipe created successfully');
+
+    reset();
+
+    navigate('/recipes');
   }
 
   return (
@@ -58,6 +80,10 @@ const CreateRecipe = () => {
             <option className='text-black' value="dinner">Dinner</option>
             <option className='text-black' value="dessert">Dessert</option>
           </select>
+
+          <small className='text-red-400'>
+            * Category should be selected
+          </small>
         </div>
 
         <div className='flex flex-col gap-2'>
