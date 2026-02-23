@@ -34,13 +34,16 @@ const CreateRecipe = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(SubmitHandler)} className='w-full flex flex-col mx-auto gap-5 py-10 sm:text-lg' >
+    <form
+      onSubmit={handleSubmit(SubmitHandler)}
+      className=" mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-10 shadow-xl space-y-8"
+    >
       <div className='w-full mx-auto grid sm:grid-cols-2 gap-5'>
         <div className='flex flex-col gap-2'>
           <input
             type="url"
             {...register("image")}
-            className='block w-full border-b-2 outline-none'
+            className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
             placeholder='Image URL'
           />
           <small className='text-red-400'>
@@ -53,7 +56,7 @@ const CreateRecipe = () => {
             type="text"
             {...register("title")}
             placeholder="Recipe Title"
-            className='block w-full border-b-2 outline-none'
+            className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           />
           <small className='text-red-400'>
             * Title should be less than 100 characters
@@ -65,7 +68,7 @@ const CreateRecipe = () => {
             type="text"
             {...register("chef")}
             placeholder="Chef Name"
-            className='block w-full border-b-2 outline-none'
+            className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           />
           <small className='text-red-400'>
             * Chef name should be less than 100 characters
@@ -73,7 +76,7 @@ const CreateRecipe = () => {
         </div>
 
         <div className='flex flex-col gap-2'>
-          <select name="category" id="category" {...register("category")} className='block w-full border-b-2 outline-none'>
+          <select name="category" id="category" {...register("category")} className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
             <option className='text-black' value="">Select Category</option>
             <option className='text-black' value="breakfast">Breakfast</option>
             <option className='text-black' value="lunch">Lunch</option>
@@ -91,7 +94,7 @@ const CreateRecipe = () => {
             type="text"
             {...register("description")}
             placeholder="Recipe Description"
-            className='block w-full border-b-2 outline-none'
+            className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           ></textarea>
           <small className='text-red-400'>
             * Description should be less than 1000 characters
@@ -103,7 +106,7 @@ const CreateRecipe = () => {
             type="text"
             {...register("ingredients")}
             placeholder="write ingredients seperated by commas"
-            className='block w-full border-b-2 outline-none'
+            className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           ></textarea>
           <small className='text-red-400'>
             * Ingredients should be less than 1000 characters
@@ -116,7 +119,7 @@ const CreateRecipe = () => {
             type="text"
             {...register("instructions")}
             placeholder="write instructions seperated by commas"
-            className='block w-full border-b-2 outline-none'
+            className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           ></textarea>
           <small className='text-red-400'>
             * Instructions should be less than 1000 characters
@@ -126,7 +129,10 @@ const CreateRecipe = () => {
 
       </div>
 
-      <button className='block self-end w-fit mt-5 bg-green-700 px-4 py-2 rounded-lg cursor-pointer hover:bg-green-600 transition-colors duration-300 active:scale-95' type='submit' >
+      <button
+        type="submit"
+        className="w-full py-3 bg-linear-to-r from-green-500 to-emerald-600 rounded-lg font-semibold hover:bg-linear-to-l  active:scale-95 transition-transform duration-300 shadow-lg cursor-pointer text-gray-900"
+      >
         Save Recipe
       </button>
     </form>
